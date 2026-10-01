@@ -37,6 +37,9 @@ from connectors import build_messaging_tools
 # 환경변수 & 모델
 # ---------------------------------------------------------------------------
 dotenv.load_dotenv()
+if os.getenv("LANGSMITH_API_KEY") or os.getenv("LANGCHAIN_API_KEY"):
+    os.environ.setdefault("LANGSMITH_TRACING", "true")
+    os.environ.setdefault("LANGSMITH_PROJECT", "ktng-ai-weekly-brief")
 api_key = os.getenv("OPENAI_API_KEY")
 base_url = "https://openrouter.ai/api/v1"
 

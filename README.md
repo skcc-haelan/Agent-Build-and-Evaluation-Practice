@@ -64,3 +64,9 @@
 ## 필수 설정
 
 `.env`의 `OPENAI_API_KEY`는 필수입니다. Tavily, Slack, Telegram, 이메일 연동은 해당 기능을 사용할 때만 각 키와 설정을 추가하면 됩니다. 자세한 환경변수 목록은 [`.env.example`](.env.example)을 참고하세요.
+
+## LangSmith 실행 추적(Observability)
+
+LangSmith 실행 추적은 선택 기능입니다. `.env`에 `LANGSMITH_API_KEY`를 설정하면 Agent 시작 시 tracing이 기본 활성화되고, 프로젝트는 `ktng-ai-weekly-brief`를 사용합니다. 다른 프로젝트명을 지정하거나 `LANGSMITH_TRACING=false`를 설정해 기본값을 재정의할 수 있습니다. 설정 변경 후 Agent를 재시작하세요.
+
+LangSmith 추적에는 모델 입력·출력과 도구 입출력 등 대화 데이터가 포함될 수 있습니다. 회사 기밀·개인정보·규제 대상 데이터를 전송해도 되는지 조직 정책을 먼저 확인하고, 승인되지 않은 민감 정보는 Agent에 입력하지 마세요.
